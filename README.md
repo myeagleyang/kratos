@@ -1,93 +1,114 @@
-# kratos
+<p align="center"><a href="https://go-kratos.dev/" target="_blank"><img src="https://gitlab.wwgame.com/wwgame/kratos/blob/main/docs/images/kratos-large.png?raw=true"></a></p>
 
+<p align="center">
+<a href="https://gitlab.wwgame.com/wwgame/kratos/actions"><img src="https://gitlab.wwgame.com/wwgame/kratos/workflows/Go/badge.svg" alt="Build Status"></a>
+<a href="https://pkg.go.dev/gitlab.wwgame.com/wwgame/kratos/v2"><img src="https://pkg.go.dev/badge/gitlab.wwgame.com/wwgame/kratos/v2" alt="GoDoc"></a>
+<a href="https://codecov.io/gh/go-kratos/kratos"><img src="https://codecov.io/gh/go-kratos/kratos/master/graph/badge.svg" alt="codeCov"></a>
+<a href="https://goreportcard.com/report/gitlab.wwgame.com/wwgame/kratos"><img src="https://goreportcard.com/badge/gitlab.wwgame.com/wwgame/kratos" alt="Go Report Card"></a>
+<a href="https://gitlab.wwgame.com/wwgame/kratos/blob/main/LICENSE"><img src="https://img.shields.io/github/license/go-kratos/kratos" alt="License"></a>
+<a href="https://github.com/avelino/awesome-go"><img src="https://awesome.re/mentioned-badge.svg" alt="Awesome Go"></a>
+<a href="https://discord.gg/BWzJsUJ"><img src="https://img.shields.io/discord/766619759214854164?label=chat&logo=discord" alt="Discord"></a>
+</p>
+<p align="center">
+<a href="https://www.producthunt.com/posts/go-kratos?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-go-kratos" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=306565&theme=light" alt="Go Kratos - A Go framework for microservices. | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+</p>
+  
+##### Translate to: [简体中文](README_zh.md)
 
+## About Kratos
+  
+> The name is inspired by the Greek-mythology-based game "God of War". It tells the adventures of Kratos becoming a god of war from a mortal and launching a god-killing slaughter.
 
-## Getting started
+Kratos is a microservice-oriented governance framework implemented by golang, which offers convenient capabilities to help you quickly build a bulletproof application from scratch, such as:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- The [communication protocol](https://go-kratos.dev/en/docs/component/api) is based on the HTTP/gRPC through the definition of Protobuf.
+- Abstract [transport](https://go-kratos.dev/en/docs/component/transport/overview) layer support: [HTTP](https://go-kratos.dev/en/docs/component/transport/http) / [gRPC](https://go-kratos.dev/en/docs/component/transport/grpc).
+- Powerful [middleware](https://go-kratos.dev/en/docs/component/middleware/overview) design, support: [Tracing (OpenTelemetry)](https://go-kratos.dev/en/docs/component/middleware/tracing), [Metrics (Prometheus is default)](https://go-kratos.dev/en/docs/component/middleware/metrics), [Recovery](https://go-kratos.dev/en/docs/component/middleware/recovery) and more.
+- [Registry](https://go-kratos.dev/en/docs/component/registry) interface able to be connected with various other centralized registries through plug-ins.
+- The [standard log interfaces](https://go-kratos.dev/en/docs/component/log) ease the integration of the third-party log libs with logs collected through the *Fluentd*.
+- Automatically support the selection of the content [encoding](https://go-kratos.dev/en/docs/component/encoding) with Accept and Content-Type.
+- Multiple data sources are supported for [configurations](https://go-kratos.dev/en/docs/component/config) and dynamic configurations (use atomic operations).
+- In the protocol of HTTP/gRPC, use the uniform [metadata](https://go-kratos.dev/en/docs/component/metadata) transfer method.
+- You can define [errors](https://go-kratos.dev/en/docs/component/errors/) in protos and generate enums with protoc-gen-go.
+- You can define [verification rules](https://go-kratos.dev/en/docs/component/middleware/validate) in Protobuf supported by the HTTP/gRPC service.
+- [Swagger API](https://go-kratos.dev/en/docs/guide/openapi) is generated Automatically and embed Swagger UI endpoint can be started by adding [Swagger plugin](https://github.com/go-kratos/swagger-api).
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Kratos is accessible, powerful, and provides tools required for large, robust applications.
 
-## Add your files
+## Learning Kratos
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Kratos has the most extensive and thorough [documentation](https://go-kratos.dev/en/docs/getting-started/start) and [example](https://github.com/go-kratos/examples) library of all modern web application frameworks, making it a breeze to get started with the framework.
 
+We also provide a [modern template](https://gitlab.wwgame.com/wwgame/kratos-layout). This template should help reduce the work required to setup up modern projects.
+
+### Goals
+
+Kratos boosts your productivity. With the integration of excellent resources and further support, programmers can get rid of most issues might encounter in the field of distributed systems and software engineering such that they are allowed to focus on the release of businesses only. Additionally, for each programmer, Kratos is also an ideal one learning warehouse for many aspects of microservices to enrich their experiences and skills.
+
+### Principles
+
+* **Simple**: Appropriate design with plain and easy code.
+* **General**: Cover the various utilities for business development.
+* **Highly efficient**: Speeding up the efficiency of businesses upgrading.
+* **Stable**: The base libs validated in the production environment have the characteristics of high testability, high coverage as well as high security and reliability.
+* **Robust**: Eliminating misusing through high quality of the base libs.
+* **High-performance**: Optimal performance excluding the optimization of hacking in case of *unsafe*. 
+* **Expandability**: Properly designed interfaces where you can expand utilities such as base libs to meet your further requirements.
+* **Fault-tolerance**: Designed against failure, enhance the understanding and exercising of SRE within Kratos to achieve more robustness.
+* **Toolchain**: Includes an extensive toolchain, such as the code generation of cache, the lint tool, and so forth.
+
+## Getting Started
+
+Create a kratos playground through [docker](https://www.docker.com/products/docker-desktop):
+  
+```shell
+docker run -it --rm -p 8000:8000 --workdir /workspace golang
 ```
-cd existing_repo
-git remote add origin https://jihulab.com/blind-box/kratos.git
-git branch -M main
-git push -uf origin main
+  
+```shell
+apt-get update && apt-get -y install protobuf-compiler
+export GOPROXY=https://goproxy.io,direct
+go install gitlab.wwgame.com/wwgame/kratos/cmd/kratos/v2@latest && kratos upgrade
 ```
+  
+```shell
+kratos new helloworld
+cd helloworld/ && go mod tidy
+kratos run
+```
+  
+Use a browser to open and visit: `http://localhost:8000/helloworld/kratos`, The kratos program is running!
 
-## Integrate with your tools
+If you need more, please visit the kratos [documentation](https://go-kratos.dev/en/docs/getting-started/start).
 
-- [ ] [Set up project integrations](https://jihulab.com/blind-box/kratos/-/settings/integrations)
+## Security Vulnerabilities
 
-## Collaborate with your team
+If you discover a security vulnerability within Kratos, please send an e-mail to tonybase via go-kratos@googlegroups.com. All security vulnerabilities will be promptly addressed.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+## Community
 
-## Test and Deploy
+- [Wechat Group](https://gitlab.wwgame.com/wwgame/kratos/issues/682)
+- [Discord Group](https://discord.gg/BWzJsUJ)
+- [go-kratos.dev](https://go-kratos.dev/en)
 
-Use the built-in continuous integration in GitLab.
+## Contributors
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+Thank you for considering contributing to the Kratos framework! The contribution guide can be found in the [Kratos documentation](https://go-kratos.dev/en/docs/community/contribution).
 
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+<a href="https://gitlab.wwgame.com/wwgame/kratos/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=go-kratos/kratos" />
+</a>
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+The Kratos framework is open-sourced software licensed under the [MIT license](./LICENSE).
+  
+## Acknowledgments
+  
+The following project had particular influence on kratos's design.
+  
+- [go-kit/kit](https://github.com/go-kit/kit) is a programming toolkit for building microservices in go.
+- [asim/go-micro](https://github.com/asim/go-micro) a distributed systems development framework.
+- [google/go-cloud](https://github.com/google/go-cloud) is go cloud development kit.
+- [zeromicro/go-zero](https://github.com/zeromicro/go-zero) is a web and rpc framework with lots of builtin engineering practices.
+- [beego/beego](https://github.com/beego/beego) is a web framework including RESTful APIs, web apps and backend services.
